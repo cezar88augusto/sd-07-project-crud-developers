@@ -23,18 +23,27 @@ module.exports = {
       street: {
         allowNull: false,
         type: Sequelize.STRING,
+        defaultValue: true,
       },
       district: {
         allowNull: false,
         type: Sequelize.STRING,
+        defaultValue: true,
       },
       city: {
         allowNull: false,
         type: Sequelize.STRING,
+        defaultValue: true,
       },
       state: {
         allowNull: false,
         type: Sequelize.STRING,
+        defaultValue: true,
+      },
+      zipCode: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        defaultValue: true,
       },
     });
     return DevsTable;

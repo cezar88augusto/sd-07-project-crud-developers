@@ -10,6 +10,7 @@ module.exports = {
         district: 'AB',
         city: 'BH',
         state: 'MG',
+        zipCode: '31630-900 '
       },
       {
         id: 2,
@@ -20,6 +21,7 @@ module.exports = {
         district: 'AB',
         city: 'BH',
         state: 'MG',
+        zipCode: '31630-900 '
       },
       {
         id: 3,
@@ -30,6 +32,7 @@ module.exports = {
         district: 'AB',
         city: 'SP',
         state: 'SP',
+        zipCode: '01153-000'
       },
       ], { timestamps: false });
   },
