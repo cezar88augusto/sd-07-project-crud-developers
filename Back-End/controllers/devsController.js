@@ -1,9 +1,8 @@
-const { Devs } = require('../models');
+const { Devs, DevsLanguages } = require('../models');
 
 const addDev = async (req, res) => {
   const { name, landLine, mobileLine, address, zipCode, allLanguages } = req.body;
   const { state, city, district, street } = address;
-  console.log(req.body);
   const dev = await Devs.create({
     name,
     landLine,
@@ -15,8 +14,22 @@ const addDev = async (req, res) => {
     zipCode
   });
 
+  await setDevsLanguages(allLanguages);
+
   return res.status(200).json(dev)
 }
+
+const setDevsLanguages = async (allLanguages) => {
+  const lastPosition = await Devs.findAll();
+  const dev_id = lastPosition.length;
+  allLanguages.forEach(async (language_id) => {
+    await DevsLanguages.create({
+      devId: dev_id,
+      languageId: language_id,
+    })
+  });
+}
+
 
 const getDevs = async (req, res) => {
   const allDevs = await Devs.findAll();
@@ -24,3 +37,5 @@ const getDevs = async (req, res) => {
 };
 
 module.exports = { addDev, getDevs };
+
+

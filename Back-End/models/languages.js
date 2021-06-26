@@ -7,6 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     name: { 
       type: DataTypes.STRING, 
     },
-  }, { timestamps: false });
+  }, 
+  { timestamps: false });
+
+/*   Languages.associate = (models) => {
+    Languages.hasMany(models.Devs,
+      { foreignKey: 'id', as: 'devs' });
+  }; */
   return Languages;
 };

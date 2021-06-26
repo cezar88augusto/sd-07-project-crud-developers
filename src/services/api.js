@@ -5,7 +5,7 @@ const ENDPOINT = {
   setDev: '/insert'
 };
 
-export async function setDev(name, landLine, mobileLine, address, zipCode) {
+export async function setDev(name, landLine, mobileLine, address, zipCode, allLanguages) {
 
   const data = {
     name,
@@ -13,6 +13,7 @@ export async function setDev(name, landLine, mobileLine, address, zipCode) {
     mobileLine,
     address,
     zipCode,
+    allLanguages,
   };
 
   const requestOptions = {
