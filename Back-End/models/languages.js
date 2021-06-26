@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   }, 
   { timestamps: false });
 
-/*   Languages.associate = (models) => {
+  /* Languages.associate = (models) => {
     Languages.hasMany(models.Devs,
       { foreignKey: 'id', as: 'devs' });
   }; */

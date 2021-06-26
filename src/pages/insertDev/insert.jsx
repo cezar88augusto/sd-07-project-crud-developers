@@ -2,6 +2,14 @@ import React, { useEffect, useState } from "react";
 import { findCEPinAPI } from "../../services/apiCep";
 import { setDev } from "../../services/api";
 let languages = [];
+const dataLanguages = [
+  { id: 1, language: 'JAVA'},
+  { id: 2, language: 'PYTHON'},
+  { id: 3, language: 'JAVASCRIPT'},
+  { id: 4, language: 'GOLANG'},
+  { id: 5, language: 'CSHARP'},
+  { id: 6, language: 'ELIXIR'},
+]
 
 function InsertDev() {
   const [name, setName] = useState("");
@@ -10,6 +18,18 @@ function InsertDev() {
   const [address, setAddress] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [allLanguages, setAllLanguages] = useState([]);
+  const [isButtonVisible, setIsButtonVisible] = useState(true);
+
+  useEffect(() => {
+    if (
+      name !== "" &&
+      mobileLine !== "" &&
+      address !== undefined &&
+      zipCode !== ""
+    )
+    setIsButtonVisible(false);
+    else setIsButtonVisible(true);
+  }, [name, mobileLine, address, zipCode, isButtonVisible]);
 
   const handleButton = async target => {
     const { value, name } = target;
@@ -29,21 +49,23 @@ function InsertDev() {
         if (address) setAddress(address);
         break;
       case "lang":
-        const isThereLanguage = languages.some(language => language === value);
-        if (isThereLanguage) {
-          const index = languages.findIndex(language => language === value);
-          languages.splice(index, 1);
-          const removedLanguage = languages.filter(
-            language => language !== value
-          );
-          setAllLanguages(removedLanguage);
-        } else {
-          languages.push(value);
-          setAllLanguages(languages);
-        }
+        updateLanguages(value);
         break;
       default:
         break;
+    }
+  };
+
+  const updateLanguages = (value) => {
+    const isThereLanguage = languages.some(language => language === value);
+    if (isThereLanguage) {
+      const index = languages.findIndex(language => language === value);
+      languages.splice(index, 1);
+      const removedLanguage = languages.filter(language => language !== value);
+      setAllLanguages(removedLanguage);
+    } else {
+      languages.push(value);
+      setAllLanguages(languages);
     }
   };
 
@@ -55,7 +77,6 @@ function InsertDev() {
       district: bairro,
       street: logradouro
     };
-
     await setDev(name, landLine, mobileLine, formatedAddress, zipCode, allLanguages);
   };
 
@@ -68,6 +89,7 @@ function InsertDev() {
           <input
             placeholder="Nome Completo"
             name="name"
+            maxLength="120"
             onChange={({ target }) => handleButton(target)}
           />
         </label>
@@ -111,7 +133,7 @@ function InsertDev() {
           ) : null}
         </label>
 
-        <h6>Linguagens</h6>
+        <h6>Linguagens (Mínimo 2)</h6>
         <label>
           <input
             type="checkbox"
@@ -174,6 +196,7 @@ function InsertDev() {
           addDev(name, landLine, mobileLine, address, zipCode, allLanguages)
         }
         type="button"
+        disabled={ isButtonVisible }
       >
         Cadastrar
       </button>

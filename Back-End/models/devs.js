@@ -11,7 +11,11 @@ module.exports = (sequelize, DataTypes) => {
     zipCode: DataTypes.STRING,
   },
   {
-      timestamps: false,
+    timestamps: false,
   });
+  /*Devs.associate = (models) => {
+    Devs.hasMany(models.Languages,
+      { foreignKey: 'id', as: 'langs' });
+  }; */
   return Devs;
 };

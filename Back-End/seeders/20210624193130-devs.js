@@ -4,7 +4,7 @@ module.exports = {
       [{
         id: 1,
         name: 'Cézar Moreira',
-        landLine: 'cezar88augusto@gmail.com',
+        landLine: '3 442 7777',
         mobileLine: '31 9 9801-9999',
         street: 'Rua A',
         district: 'AB',
@@ -15,7 +15,7 @@ module.exports = {
       {
         id: 2,
         name: 'Luísa S',
-        landLine: 'luisa@gmail.com',
+        landLine: '3 442 8888',
         mobileLine: '31 9 9999-9999',
         street: 'Rua B',
         district: 'AB',
@@ -26,7 +26,7 @@ module.exports = {
       {
         id: 3,
         name: 'Mel',
-        landLine: 'mel@gmail.com',
+        landLine: '3 442 9999',
         mobileLine: '31 9 8888-888',
         street: 'Rua C',
         district: 'AB',
