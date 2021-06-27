@@ -3,7 +3,6 @@ import { getDevs } from "../../services/api";
 
 function SelectDev() {
   const [devs, setDevs] = useState([]);
-  const [fetch, setFetch] = useState(false);
 
   useEffect(() => {
     getData();

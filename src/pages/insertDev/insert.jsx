@@ -132,64 +132,21 @@ function InsertDev() {
             </label>
           ) : null}
         </label>
-
         <h6>Linguagens (Mínimo 2)</h6>
-        <label>
-          <input
-            type="checkbox"
-            id="lang1"
-            name="lang"
-            value="1"
-            onChange={({ target }) => handleButton(target)}
-          />
-          <label htmlFor="lang1"> JAVA </label>
-          <br />
-          <input
-            type="checkbox"
-            id="lang2"
-            name="lang"
-            value="2"
-            onChange={({ target }) => handleButton(target)}
-          />
-          <label htmlFor="lang2"> PYTHON </label>
-          <br />
-          <input
-            type="checkbox"
-            id="lang3"
-            name="lang"
-            value="3"
-            onChange={({ target }) => handleButton(target)}
-          />
-          <label htmlFor="lang3"> JAVASCRIPT</label>
-          <br />
-          <input
-            type="checkbox"
-            id="lang4"
-            name="lang"
-            value="4"
-            onChange={({ target }) => handleButton(target)}
-          />
-          <label htmlFor="lang4"> GOLANG</label>
-          <br />
-          <input
-            type="checkbox"
-            id="lang5"
-            name="lang"
-            value="5"
-            onChange={({ target }) => handleButton(target)}
-          />
-          <label htmlFor="lang5"> CSHARP</label>
-          <br />
-          <input
-            type="checkbox"
-            id="lang6"
-            name="lang"
-            value="6"
-            onChange={({ target }) => handleButton(target)}
-          />
-          <label htmlFor="lang6"> ELIXIR</label>
-          <br />
-        </label>
+        {
+          dataLanguages.map(({id, language}, index) => (
+            <div key={index}>
+              <input
+                id={`lang${id}`}
+                type="checkbox"
+                name="lang"
+                value={id}
+                onChange={({ target }) => handleButton(target)}
+              />
+              <label htmlFor={`lang${id}`}> {language} </label>
+            </div>
+          ))
+        }  
       </form>
       <button
         onClick={() =>

@@ -35,4 +35,14 @@ const getDevs = async (req, res) => {
   return res.status(200).json(allDevs);
 };
 
-module.exports = { addDev, getDevs };
+const deleteDev = async (req, res) => {
+  console.log(req.body);
+  await Devs.destroy({
+    where: {
+      name: req.body.name
+    }
+  })
+  return res.status(204).json();
+}
+
+module.exports = { addDev, getDevs, deleteDev };
