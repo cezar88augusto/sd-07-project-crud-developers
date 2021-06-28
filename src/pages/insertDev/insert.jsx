@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { findCEPinAPI } from "../../services/apiCep";
 import { setDev } from "../../services/api";
+import { useHistory } from 'react-router-dom';
+
 let languages = [];
 const dataLanguages = [
   { id: 1, language: 'JAVA'},
@@ -19,6 +21,7 @@ function InsertDev() {
   const [zipCode, setZipCode] = useState("");
   const [allLanguages, setAllLanguages] = useState([]);
   const [isButtonVisible, setIsButtonVisible] = useState(true);
+  const history = useHistory();
 
   useEffect(() => {
     if (
@@ -78,6 +81,8 @@ function InsertDev() {
       street: logradouro
     };
     await setDev(name, landLine, mobileLine, formatedAddress, zipCode, allLanguages);
+    alert('Usuário Cadastrado!')
+    history.push('/');
   };
 
   return (

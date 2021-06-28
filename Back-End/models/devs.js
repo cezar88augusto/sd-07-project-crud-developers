@@ -10,12 +10,12 @@ module.exports = (sequelize, DataTypes) => {
     state: DataTypes.STRING,
     zipCode: DataTypes.STRING,
   },
-  {
-    timestamps: false,
-  });
-  /*Devs.associate = (models) => {
+    {
+      timestamps: false,
+    });
+  Devs.associate = (models) => {
     Devs.hasMany(models.Languages,
       { foreignKey: 'id', as: 'langs' });
-  }; */
+  };
   return Devs;
 };
