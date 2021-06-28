@@ -47,9 +47,7 @@ export async function deleteDev(name) {
     },
     body: JSON.stringify(data),
   };
-  const request = await fetch(URL + ENDPOINT.deleteDev, requestOptions);
-  const response = request.json();
-  return response;
+  await fetch(URL + ENDPOINT.deleteDev, requestOptions);
 }
 
 export async function getDevByName(name) {

@@ -1,16 +1,27 @@
-import React, { useState, useEffect } from "react";
-import { deleteDev } from "../../services/api";
+import React, { useState } from "react";
+import { deleteDev, getDevByName } from "../../services/api";
+import { useHistory } from "react-router-dom";
 
 function DeleteDev() {
   const [name, setName] = useState("");
+  const [isThereUser, setIsThereUser] = useState(true);
+  const history = useHistory();
 
-  const handleButton = async (target) => {
+  const handleButton = async target => {
     const { value } = target;
     setName(value);
   };
 
-  const removeDev = async (name) => {
-    await deleteDev(name);
+  const removeDev = async name => {
+    const isDev = await getDevByName(name);
+    if (isDev.length >= 1) {
+      setIsThereUser(true);
+      await deleteDev(name);
+      alert("Usuário Deletado!");
+      history.push("/");
+    }else{
+      setIsThereUser(false);
+    }
   };
 
   return (
@@ -26,6 +37,7 @@ function DeleteDev() {
           />
         </label>
       </form>
+      { !isThereUser ? <p>Usuário não encontrado.</p> : null }
       <button onClick={() => removeDev(name)} type="button">
         Delete
       </button>

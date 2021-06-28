@@ -66,7 +66,6 @@ function InsertDev() {
       setAddress(address);
       setMobileLine(mobileLine);
       setZipCode(zipCode);
-      console.log(dev);
     }
   };
 

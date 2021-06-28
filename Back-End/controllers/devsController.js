@@ -30,8 +30,12 @@ const setDevsLanguages = async (allLanguages) => {
 };
 
 const getDevs = async (req, res) => {
-  const allDevs = await Devs.findAll();
-  return res.status(200).json(allDevs);
+  const alldevs = await Devs.findAll({
+    include: [
+      { association: 'langs' },
+    ],
+  });
+  return res.status(200).json(alldevs);
 };
 
 const getDevByName = async (req, res) => {
@@ -48,7 +52,6 @@ const getDevByName = async (req, res) => {
 const updateByName = async (req, res) => {
   const { previousName, name, landLine, mobileLine, address, zipCode } = req.body;
   const { uf: state, cidade: city, bairro: district, logradouro: street} = address;
-  console.log(address);
   await Devs.update(
     { name, landLine, mobileLine, street, district, city, state, zipCode },
     {
