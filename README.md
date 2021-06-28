@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Teste Técnico
+Desenvolva uma API que será consumida por um front-end.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+• Essa API deve fazer a gestão de cadastros de pessoas desenvolvedoras.
+No cadastro da pessoa dev, devem ser cadastrados e gravados em uma banco de dados
+relacional os seguintes itens abaixo:
+• Nome da pessoa dev, com no máximo 120 caracteres
+• Telefone Fixo (opcional)
+• Telefone Celular
+• Endereço através de um CEP Formatado (00000-000)
+- Retornar todos os dados de endereço da pessoa cliente que devem ser gravados no
+banco.Ao cadastrar o CEP, deve ser feita uma requisição via XHR para a API dos
+correios
+• Especialidade da pessoa dev (no mínimo duas linguagens)
+- Cadastrar as seguintes linguagens no banco: JAVA, PYTHON, JAVASCRIPT, GOLANG,
+CSHARP e ELIXIR
 
-## Available Scripts
+# Itens obrigatórios:
+• O sistema deve suportar as seguintes operações: Insert, Update, Select e Delete.
+• Realizar pesquisas por todos os campos do cadastro da pessoa dev, inclusive endereço.
+• Listar todas as pessoas devs que possuem determinada linguagem (informada como
+parâmetro) como especialidade.
+• Estar no padrão REST.
+• Utilizar alguma ferramenta de validação (exemplo, YUP).
+• Escrever apenas funções especializadas (Realizam somente uma operação).
+• Utilizar o Swagger para documentação.
+• Criar os testes unitários.
+• Implementar o código de forma limpa (clean code).
+• Realizar o deploy em qualquer serviço de cloud (Heroku, AWS, Azure, etc.).
+• Utilizar o GIT(commits descritivos).
 
-In the project directory, you can run:
+# Itens não obrigatórios:
+• O desenvolvimento do front-end é opcional.
+Ferramentas para serem utilizadas no desenvolvimento:
 
-### `npm start`
+A solução deve ser desenvolvida em Node.js e seguir as orientações abaixo:
+• Sequelize ou TypeORM
+• Express.js
+• Migrations e Seeds
+• React ou HTML e CSS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Diferenciais:
+• Docker
+• Testes de Integração
+• AWS (ECS, RDS)
+• Estruturação de Banco de dados MySQL
+• Filas (RabbitMQ ou SQS)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Bônus:
+Como você otimizaria a performance dessa API? Raciocine e deixe a sugestão no README do projeto.
+**Resposta:**
+Melhorando a modelagem do banco de dados: Incluindo uma tabela específica para endereços.
+Utilizando o localStorage e cache para que o tempo de resposta de requisições seja mais rápido.
 
-### `npm test`
+#Input/Output:
+• Exemplo de chamada à API:
+curl https://localhost:8080/developer
+• Exemplo de retorno:
+[{
+“nome”: “Fulano”,
+“telefone”: “9999999999”,
+“celular”: “99999999999”,
+“endereco”: “dados retornados da api dos Correios”,
+“especialidade”: [“PYTHON”, “GOLANG”]
+},
+{
+“nome”: “Ciclano”,
+“telefone”: “8888888888”,
+“celular”: “88888888888”,
+“endereco”: “dados retornados da api dos Correios”,
+“especial
+idade”: [“ELIXIR”, “JAVA”]
+}]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Tempo estimado de desenvolvimento:
+• 16 horas
 
-### `npm run build`
+# Entrega:
+• O link do repositório no github deve ser enviado para o email:
+luiz.roque@betrybe.com
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
